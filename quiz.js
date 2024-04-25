@@ -353,11 +353,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.selectAnswer = function(answerKey, questionIndex) {
+        updateScores(answerKey, questionIndex);
         if (questionIndex < questions.length - 1) {
-            updateScores(answerKey, questionIndex);
             showQuestion(questionIndex + 1);
         } else {
-            updateScores(answerKey, questionIndex);
             getEmail();
         }
     };
