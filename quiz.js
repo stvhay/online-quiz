@@ -1,7 +1,12 @@
 /* jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Define DOM elements to display quiz and results.
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
+    const progressBar = document.getElementById('progressBar');
+
+    // Define quiz questions and scoring.
     const questions = [
         {
             prompt: `Think of some relative or friend whom you frequently see (but who is not with
@@ -331,41 +336,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     ];
+
+    // Collect results.
     let results = {};
 
+    // Place question n into quiz container.
     const showQuestion = (n) => {
         const showKey = false;
         const { prompt, question, image, answers } = questions[n];
-        // Generate the HTML for the question text
+        
+        // Prepare an array of answers (HTML fragments).
+        const answerFragments = Object.keys(answers).map(answer => `
+            <button onclick="selectAnswer('${answer}', ${n})">
+                ${showKey ? `${answer}: ` : ''}${answers[answer]}
+            </button>`);
+
         quizContainer.innerHTML = `
             <div class='question'>
                 ${prompt ? `<h4>${prompt}</h4>` : ''}
                 ${question ? `<h2>${question}</h2>` : ''}
             </div>
             ${image ? `<img src="${image}" alt="Question Image" style="width:100%; max-width:40ex;">` : '' }
-            ${Object.keys(answers).map(answer => `
-                <button onclick="selectAnswer('${answer}', ${n})">
-                    ${showKey ? `${answer}: ` : ''}${answers[answer]}
-                </button>`).join('<br>')}`;
+            ${answerFragments.join('<br>')}`;
+
         updateProgressBar(n-1);
     };
 
     const updateProgressBar = (questionIndex) => {
-        const progressBar = document.getElementById('progressBar');
         const totalQuestions = questions.length;
         const progressPercentage = ((questionIndex + 1) / totalQuestions) * 100;
         progressBar.style.width = `${progressPercentage}%`;
     };
 
-    window.selectAnswer = (answerKey, questionIndex) => {
-        updateScores(answerKey, questionIndex);
-        if (questionIndex < questions.length - 1) {
-            showQuestion(questionIndex + 1);
-        } else {
-            getEmail();
-        }
-    };
-
+    // Increment scores according to their category weights.
     const updateScores = (answerKey, questionIndex) => {
         const currentQuestion = questions[questionIndex];
         Object.keys(currentQuestion.scores[answerKey]).forEach(category => {
@@ -374,9 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Collect user info.
     const getEmail = () => {
+        // Clear the quiz and finalize progress bar.
         quizContainer.innerHTML = "";
         updateProgressBar(questions.length-1);
+
+        // Present the form.
         resultsContainer.innerHTML = `
             <p><form id="userForm">
                 <input type="text" id="name" placeholder="Enter your name" required>
@@ -386,14 +393,14 @@ document.addEventListener('DOMContentLoaded', () => {
             very occasional newsletter. You can unsubscribe at any time.`;
         document.getElementById('userForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            submitResults();
+            submitEmail();
         });
     };
 
-    const submitResults = () => {
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var data = {
+    const submitEmail = () => { // POST to Google script endpoint.
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const data = {
             name: name,
             email: email
         };
@@ -409,6 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showResults();
     };
 
+    // Interpret the results and display the results.
     const showResults = () => {
         quizContainer.innerHTML = "";
         if (results.vividness <= 32) { // Aphantasia
@@ -445,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 within the normal range.`;
             return;
         }
-        if (results.vividness <= 64) { // Neurotypical
+        if (results.vividness <= 64) { // neurotypical
             resultsContainer.innerHTML = `
                 <p>You have higher-than-average visual imagery -- but you’re still in the normal
                 range.`;
@@ -471,5 +479,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Define window-scope function attached to static HTML DOM element.
+    window.selectAnswer = (answerKey, questionIndex) => {
+        updateScores(answerKey, questionIndex);
+        if (questionIndex < questions.length - 1) {
+            showQuestion(questionIndex + 1);
+        } else {
+            getEmail();
+        }
+    };
+
+    // Initiate the quiz.
     showQuestion(0);
 });
