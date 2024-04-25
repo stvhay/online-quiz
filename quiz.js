@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', function() {
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
@@ -408,15 +409,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showResults() {
-        quizContainer.innerHTML = ""
-        let resultsHTML = '<h1>Results</h1><ul>';
-        Object.keys(results).forEach(category => {
-            if (category !== 'innerHTML') {
-                resultsHTML += `<li>${category}: ${results[category] || 0} </li>`;
-            }
-        });
-        resultsHTML += `</ul>`;
-        resultsContainer.innerHTML = resultsHTML;
+        quizContainer.innerHTML = "";
+        if (results.vividness <= 32) { // Aphantasia
+            let resultsHTML = `<h2>Aphantasia</h2>`;
+            resultsHTML += `<a href="https://www.sadied.com/aphantasia-association-1">Welcome to the club!</a> Compared to most people, your visual imagination is quite dim. That means that everyone else in your meditation circle actually is “seeing” that beach sunrise in their mind’s eye, while you were just thinking about one. “Undressing someone with your eyes,” is actually possible, it turns out -- at least for some people. (Not us, though.) `;
+            resultsHTML += `<p><b>What does this mean?</b> Aphantasia is correlated with a tendency to go into STEM fields, a tendency to remember your past as stories rather than as moments you can mentally time travel to and relive in a sensory way, and a lack of emotion when thinking about your past or future.`;
+            resultsHTML += `<p>These correlations are weak, however. So far, scientists have only found a strong link between aphantasia and the neural correlates of visualization -- which is to say, activation of the visual areas of your brain when you’re trying to visualize. When aphants try to visualize, fMRI shows the visual areas of our brain refuse to light up.`;
+            resultsHTML += `<p>The inability to visualize does not necessarily mean you are bad or good at anything. Indeed, there is a small subset of aphants who are weirdly good at spatial relation tasks. Most of us, however, are not great at mentally rotating objects and we tend to have a poor visual memory.`;
+            resultsHTML += `<p>Interestingly, most of us do dream in visual imagery and we can hallucinate on drugs. Aphantasia is a lack of voluntary visualization, involuntary visualization is still on the table for us.`;
+            resultsContainer.innerHTML = resultsHTML;
+            return;
+        }
+        if (results.vividness <= 48) { // Hypophantasia
+            let resultsHTML = `<h2>Hypophantasia</h2>`;
+            resultsHTML += `<p>Hello there hypophant! You have lower than average visual imagery, but you’re within the normal range.`;
+            resultsContainer.innerHTML = resultsHTML;
+            return;
+        }
+        if (results.vividness <= 64) { // Neurotypical
+            let resultsHTML = `<p>Hello there hypophant! You have lower than average visual imagery, but you’re within the normal range.`;
+            resultsContainer.innerHTML = resultsHTML;
+            return;
+        }
+        else { // Hyperphantasia
+            let resultsHTML = `<h2>Hyperphantasia</h2>`;
+            resultsHTML += `<p>Hello there, hyperphant! Compared to most people, your visual imagination is quite vivid. You can summon up images that are bright and realistic.`;
+            resultsHTML += `<p><b>What does this mean?</b> There’s not much research on hyperphantasia yet, but overall you guys tend to gravitate to artistic and creative fields. You also tend to remember things episodically instead of semantically -- which means you can mentally time travel to moments from your past and relive sensory details. As a result, you may have stronger emotions and increased difficulty getting over or moving on from past trauma. (Of course, you probably recall happy moments more vividly than other people, too.)`;
+            resultsHTML += `<p>There are, however, many people who buck these trends. Vivid visualization abilities have only been strongly linked to activation in the brain’s visual areas (when you try to visualize). That means, you’re not just imagining that you’re good at imagining. Links to other traits have been weak so far.`;
+            resultsContainer.innerHTML = resultsHTML;
+            return;
+        }
     }
 
     showQuestion(0);
