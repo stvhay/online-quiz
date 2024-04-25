@@ -419,6 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Interpret the results and display the results.
     const showResults = () => {
         quizContainer.innerHTML = "";
+        progressBar.style.display = 'none';
         if (results.vividness <= 32) { // Aphantasia
             resultsContainer.innerHTML = `
                 <h2>Aphantasia</h2>
