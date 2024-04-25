@@ -33,7 +33,7 @@ The questions of the quiz can be modified by adjusting the `questions` variable 
                 5: { vividness: 5 },
             }
         }
-	}
+    }
 
 ```
 
