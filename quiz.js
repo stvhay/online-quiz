@@ -1,10 +1,12 @@
 /* jshint esversion: 6 */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const questions = [
         {
-            prompt: "Think of some relative or friend whom you frequently see (but who is not with you at present) and consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Think of some relative or friend whom you frequently see (but who is not with
+                you at present) and consider carefully the picture that comes before your mind’s
+                eye.`,
             question: "The exact contours of face, head, shoulders and body.",
             image: null,
             answers: {
@@ -23,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of some relative or friend whom you frequently see (but who is not with you at present) and consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Think of some relative or friend whom you frequently see (but who is not with
+                you at present) and consider carefully the picture that comes before your mind’s
+                eye.`,
             question: "Characteristic poses of head, attitudes of body etc.",
             image: null,
             answers: {
@@ -42,7 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of some relative or friend whom you frequently see (but who is not with you at present) and consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Think of some relative or friend whom you frequently see (but who is not with
+                you at present) and consider carefully the picture that comes before your mind’s
+                eye.`,
             question: "The precise carriage, length of step etc., in walking.",
             image: null,
             answers: {
@@ -61,7 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of some relative or friend whom you frequently see (but who is not with you at present) and consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Think of some relative or friend whom you frequently see (but who is not with
+                you at present) and consider carefully the picture that comes before your mind’s
+                eye.`,
             question: "The different colors worn in some familiar clothes.",
             image: null,
             answers: {
@@ -80,7 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Visualise a rising sun. Consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
+                mind’s eye.`,
             question: "The sun rising above the horizon into a hazy sky.",
             image: null,
             answers: {
@@ -99,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Visualise a rising sun. Consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
+                mind’s eye.`,
             question: "The sky clears and surrounds the sun with blueness.",
             image: null,
             answers: {
@@ -118,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Visualise a rising sun. Consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
+                mind’s eye.`,
             question: "Clouds. A storm blows up with flashes of lightning.",
             image: null,
             answers: {
@@ -137,7 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Visualise a rising sun. Consider carefully the picture that comes before your mind’s eye.",
+            prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
+                mind’s eye.`,
             question: "A rainbow appears.",
             image: null,
             answers: {
@@ -156,7 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of the front of a shop which you often go to. Consider the picture that comes before your mind’s eye.",
+            prompt: `Think of the front of a shop which you often go to. Consider the picture that
+                comes before your mind’s eye.`,
             question: "The overall appearance of the shop from the opposite side of the road.",
             image: null,
             answers: {
@@ -175,8 +188,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of the front of a shop which you often go to. Consider the picture that comes before your mind’s eye.",
-            question: "A window display including colors, shapes and details of individual items for sale.",
+            prompt: `Think of the front of a shop which you often go to. Consider the picture that
+                comes before your mind’s eye.`,
+            question: `A window display including colors, shapes and details of individual items
+                for sale.`,
             image: null,
             answers: {
                 1: 'No image at all, I only “know” I am thinking of the object',
@@ -194,7 +209,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of the front of a shop which you often go to. Consider the picture that comes before your mind’s eye.",
+            prompt: `Think of the front of a shop which you often go to. Consider the picture that
+                comes before your mind’s eye.`,
             question: "You are near the entrance. The color, shape and details of the door.",
             image: null,
             answers: {
@@ -213,8 +229,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Think of the front of a shop which you often go to. Consider the picture that comes before your mind’s eye.",
-            question: "You enter the shop and go to the counter. The counter Assistant serves you. Money changes hands.",
+            prompt: `Think of the front of a shop which you often go to. Consider the picture that
+                comes before your mind’s eye.`,
+            question: `You enter the shop and go to the counter. The counter Assistant serves you.
+                Money changes hands.`,
             image: null,
             answers: {
                 1: 'No image at all, I only “know” I am thinking of the object',
@@ -232,7 +250,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Finally think of a country scene which involves trees, mountains and a lake. Consider the picture that comes before your mind’s eye.",
+            prompt: `Finally think of a country scene which involves trees, mountains and a lake.
+                Consider the picture that comes before your mind’s eye.`,
             question: "The contours of the landscape.",
             image: null,
             answers: {
@@ -251,7 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Finally think of a country scene which involves trees, mountains and a lake. Consider the picture that comes before your mind’s eye.",
+            prompt: `Finally think of a country scene which involves trees, mountains and a lake.
+                Consider the picture that comes before your mind’s eye.`,
             question: "The color and shape of the lake.",
             image: null,
             answers: {
@@ -270,7 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Finally think of a country scene which involves trees, mountains and a lake. Consider the picture that comes before your mind’s eye.",
+            prompt: `Finally think of a country scene which involves trees, mountains and a lake.
+                Consider the picture that comes before your mind’s eye.`,
             question: "The color and shape of the trees.",
             image: null,
             answers: {
@@ -289,8 +310,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         {
-            prompt: "Finally think of a country scene which involves trees, mountains and a lake. Consider the picture that comes before your mind’s eye.",
-            question: "A strong wind blows on the trees and on the lake causing reflections in the water.",
+            prompt: `Finally think of a country scene which involves trees, mountains and a lake.
+                Consider the picture that comes before your mind’s eye.`,
+            question: `A strong wind blows on the trees and on the lake causing reflections in the
+                water.`,
             image: null,
             answers: {
                 1: 'No image at all, I only “know” I am thinking of the object',
@@ -310,49 +333,31 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     let results = {};
 
-    function showQuestion(n) {
-        const currentQuestion = questions[n];
+    const showQuestion = (n) => {
+        const showKey = false;
+        const { prompt, question, image, answers } = questions[n];
         // Generate the HTML for the question text
-        let questionHTML = `<div class='question'>`;
-        if (currentQuestion.prompt) {
-            questionHTML += `<h4>${currentQuestion.prompt}</h4>`;
-        }
-        if (currentQuestion.question) {
-            questionHTML += `<h2>${currentQuestion.question}</h2>`;
-        }
-        questionHTML += `</div>`;
-
-
-        // Check if an image path is provided and valid and add image
-        if (currentQuestion.image) {
-            questionHTML += `<img src="${currentQuestion.image}" alt="Question Image" style="width:100%; max-width:40ex;">`;
-        }
-
-        // Append the answers as buttons
-        questionHTML += `${Object.keys(currentQuestion.answers).map(key => `
-            <button onclick="selectAnswer('${key}', ${n})">
-                ${currentQuestion.answers[key]}
-            </button>`)
-            .join('<br>')}`;
-        // questionHTML += `${Object.keys(currentQuestion.answers).map(key => `
-        //     <button onclick="selectAnswer('${key}', ${n})">
-        //         ${key} : ${currentQuestion.answers[key]}
-        //     </button>`)`
-        //     .join('<br>')}`;
-
-        // Set the innerHTML of the quizContainer
-        quizContainer.innerHTML = questionHTML;
+        quizContainer.innerHTML = `
+            <div class='question'>
+                ${prompt ? `<h4>${prompt}</h4>` : ''}
+                ${question ? `<h2>${question}</h2>` : ''}
+            </div>
+            ${image ? `<img src="${image}" alt="Question Image" style="width:100%; max-width:40ex;">` : '' }
+            ${Object.keys(answers).map(answer => `
+                <button onclick="selectAnswer('${answer}', ${n})">
+                    ${showKey ? `${answer}: ` : ''}${answers[answer]}
+                </button>`).join('<br>')}`;
         updateProgressBar(n-1);
-    }
+    };
 
-    function updateProgressBar(questionIndex) {
+    const updateProgressBar = (questionIndex) => {
         const progressBar = document.getElementById('progressBar');
         const totalQuestions = questions.length;
         const progressPercentage = ((questionIndex + 1) / totalQuestions) * 100;
         progressBar.style.width = `${progressPercentage}%`;
-    }
+    };
 
-    window.selectAnswer = function(answerKey, questionIndex) {
+    window.selectAnswer = (answerKey, questionIndex) => {
         updateScores(answerKey, questionIndex);
         if (questionIndex < questions.length - 1) {
             showQuestion(questionIndex + 1);
@@ -361,17 +366,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    function updateScores(answerKey, questionIndex) {
+    const updateScores = (answerKey, questionIndex) => {
         const currentQuestion = questions[questionIndex];
         Object.keys(currentQuestion.scores[answerKey]).forEach(category => {
-            if (!results[category]) {
-                results[category] = 0;
-            }
+            if (!results[category]) results[category] = 0;
             results[category] += currentQuestion.scores[answerKey][category];
         });
-    }
+    };
 
-    function getEmail() {
+    const getEmail = () => {
         quizContainer.innerHTML = "";
         updateProgressBar(questions.length-1);
         resultsContainer.innerHTML = `
@@ -385,9 +388,9 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             submitResults();
         });
-    }
+    };
 
-    function submitResults() {
+    const submitResults = () => {
         var name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
         var data = {
@@ -404,9 +407,9 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(data)
         });
         showResults();
-    }
+    };
 
-    function showResults() {
+    const showResults = () => {
         quizContainer.innerHTML = "";
         if (results.vividness <= 32) { // Aphantasia
             resultsContainer.innerHTML = `
@@ -466,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 at imagining. Links to other traits have been weak so far.`;            
             return;
         }
-    }
+    };
 
     showQuestion(0);
 });
