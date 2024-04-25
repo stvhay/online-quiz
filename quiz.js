@@ -317,10 +317,12 @@ document.addEventListener('DOMContentLoaded', function() {
             questionHTML += `<h4>${currentQuestion.prompt}</h4>`;
         }
         if (currentQuestion.question) {
-            questionHTML += `<h2>${currentQuestion.question}</h2></div>`;
+            questionHTML += `<h2>${currentQuestion.question}</h2>`;
         }
+        questionHTML += `</div>`;
 
-        // Check if an image path is provided and valid
+
+        // Check if an image path is provided and valid and add image
         if (currentQuestion.image) {
             questionHTML += `<img src="${currentQuestion.image}" alt="Question Image" style="width:100%; max-width:40ex;">`;
         }
@@ -329,13 +331,13 @@ document.addEventListener('DOMContentLoaded', function() {
         questionHTML += `${Object.keys(currentQuestion.answers).map(key => `
             <button onclick="selectAnswer('${key}', ${n})">
                 ${currentQuestion.answers[key]}
-            </button>
-        `).join('<br>')}`;
+            </button>`)
+            .join('<br>')}`;
         // questionHTML += `${Object.keys(currentQuestion.answers).map(key => `
         //     <button onclick="selectAnswer('${key}', ${n})">
         //         ${key} : ${currentQuestion.answers[key]}
-        //     </button>
-        // `).join('<br>')}`;
+        //     </button>`)`
+        //     .join('<br>')}`;
 
         // Set the innerHTML of the quizContainer
         quizContainer.innerHTML = questionHTML;
