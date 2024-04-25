@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <button id="emailbtn">Submit</button></form>
             <p>Privacy: We are not storing your scores, we are simply signing you up for Sadie’s
             very occasional newsletter. You can unsubscribe at any time.`;
-        document.getElementById('emailbtn').addEventListener('submit', function(event) {
+        document.getElementById('userForm').addEventListener('submit', function(event) {
             event.preventDefault();
             submitResults();
         });
