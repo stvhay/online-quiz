@@ -378,7 +378,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let resultsHTML = `<p><div id="userForm"><input type="text" id="name" placeholder="Enter your name"><input type="email" id="email" placeholder="Enter your email"><button id="emailbtn">Submit</button></div>`;
         resultsHTML += `<p>Privacy: We are not storing your scores, we are simply signing you up for Sadie’s very occasional newsletter. You can unsubscribe at any time.`;
         resultsContainer.innerHTML = resultsHTML;
-        document.getElementById('emailbtn').addEventListener('click', submitResults);
+        document.getElementById('emailbtn').addEventListener('submit', function(event) {
+            event.preventDefault();
+            submitResults();
+        });
     }
 
     function submitResults() {
