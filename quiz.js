@@ -308,12 +308,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     ];
-    let results = {}
+    let results = {};
 
     function showQuestion(n) {
         const currentQuestion = questions[n];
         // Generate the HTML for the question text
-        let questionHTML = `<div class='question'>`
+        let questionHTML = `<div class='question'>`;
         if (currentQuestion.prompt) {
             questionHTML += `<h4>${currentQuestion.prompt}</h4>`;
         }
@@ -373,17 +373,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getEmail() {
-        quizContainer.innerHTML = ""
+        quizContainer.innerHTML = "";
         updateProgressBar(questions.length-1);
-        let resultsHTML = `<p><div id="userForm"><input type="text" id="name" placeholder="Enter your name"><input type="email" id="email" placeholder="Enter your email"><button id="emailbtn">Submit</button></div>`
-        resultsHTML += `<p>Privacy: We are not storing your scores, we are simply signing you up for Sadie’s very occasional newsletter. You can unsubscribe at any time.`
+        let resultsHTML = `<p><div id="userForm"><input type="text" id="name" placeholder="Enter your name"><input type="email" id="email" placeholder="Enter your email"><button id="emailbtn">Submit</button></div>`;
+        resultsHTML += `<p>Privacy: We are not storing your scores, we are simply signing you up for Sadie’s very occasional newsletter. You can unsubscribe at any time.`;
         resultsContainer.innerHTML = resultsHTML;
         document.getElementById('emailbtn').addEventListener('click', submitResults);
-    }
-
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
     }
 
     function submitResults() {
@@ -393,10 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
             name: name,
             email: email
         };
-        if (!validateEmail(data.email)) {
-            alert('Please enter a valid email address.');
-            return; // Stop the function if the email is invalid
-        }
 
         fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_HERE/exec', {
             method: 'POST',
