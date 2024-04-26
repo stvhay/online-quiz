@@ -1,51 +1,54 @@
-#enclosure {
-    flex-direction: column;
-    margin: 1ex;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button {
+    background-color: darkcyan;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-#quiz, #results, #progressBarContainer {
+button:hover {
+    background-color: purple; 
+    transform: scale(1.1);
+}
+
+img {
+    margin-top: 20px;
+}
+
+.question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#enclosure {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1ex;
+    padding: 0;
+}
+
+#progressBar {
+    background-color: purple;
+    border-radius: 1ex;
+    height: 20px;
+    transition: width 0.4s ease-in-out; 
+    width: 0%;
+}
+
+#progressBarContainer, #quiz, #results {
     max-width: 80ex;
     text-align: center;
 }
 
 #progressBarContainer {
-    margin:3ex;
-    width: 100%;
-    text-align: center;
-    /*padding: 3px;*/
-    border-radius: 1ex;
     border: 1px solid black;
-}
-#progressBar {
-    height: 20px;
-    background-color: purple;
-    width: 0%;
     border-radius: 1ex;
-    transition: width 0.4s ease-in-out; 
-}
-
-img {
-    margin-top: 20px; /* Space above the image */
-}
-button {
-    background-color: darkcyan; /* Blue background for buttons */
-    color: white; /* White text on buttons */
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
-    border-radius: 10px;
-}
-button:hover {
-    background-color: purple; /* Red background on hover */
-    transform: scale(1.1); /* Slightly larger on hover */
-}
-.question {
-    font-size: 1.5em; /* Larger text for questions */
-    margin-bottom: 20px; /* Space below the question */
+    margin: 3ex;
+    text-align: center;
+    width: 100%;
 }
