@@ -510,18 +510,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Interpret the results and display the results.
     const showResults = () => {
+        // clear other displays
         quizContainer.innerHTML = "";
         progressBar.style.display = 'none';
 
-        // Each item in test.results defines criteria across all dimensions, and display items, for each result category.
+        // Each dictionary in test.results array defines criteria across all dimensions, and display items, for each result category.
         for (const resultsCategory of test.results) {
-            const category = Object.keys(resultsCategory)[0]; // The resultsCategory dict has one key to ensure test are processed in order.
+            // The resultsCategory dict has one key to ensure test are processed in order.
+            if (resultsCategory.length != 1) console.log("Malformed resultsCategory: length != 1");
+            const category = Object.keys(resultsCategory)[0];
             const { criteria, display } = resultsCategory[category];
-            let failed = false; // keep track if a test has failed.
 
             // tests is a dict of tests keyed on dimension.
             // display is a dict with keys heading and description.
             // The logic is if any test fails, then the score is not in this category.
+            let failed = false; // keep track if a test has failed.
             for (const [dimension, tests] of Object.entries(criteria)) { // iterate over dimensions
                 for (const [test, criterion] of Object.entries(tests)) { // iterate over tests
                     switch (test) {
@@ -538,9 +541,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             if (!failed) { // all conditions have passed, therefore we have found the category and can exit.
+                let { heading, description } = display;
                 resultsContainer.innerHTML = `
-                    <h2>${display.heading}</h2>
-                    ${display.description}`;
+                    ${heading ? `<h2>${heading}</h2>` : ''}
+                    ${description ? description : ''}`;
                 break;
             }
         }
