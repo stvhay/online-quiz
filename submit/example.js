@@ -7,10 +7,10 @@ const submitEmailData = {
         <input type="email" id="email" placeholder="Enter your email" required>
         <button id="emailbtn">Submit</button>`,
     belowFormHTML: `
-        <p>Privacy: We are not storing your scores, we are simply signing you up for Sadie’s
+        <p>Privacy: We are not storing your scores, we are simply signing you up for a
            very occasional newsletter. You can unsubscribe at any time.`,
     submit: () => {
-        const url = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_HERE/exec';
+        const url = 'https://example.com/api/endpoint';
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const data = {
