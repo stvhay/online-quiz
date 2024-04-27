@@ -5,20 +5,25 @@ This is a browser Javascript template to administer and score an online user "qu
 Sample quizzes are provided for aphantasia and personality tests.
 
 The code supports multi-dimensional tests, with the ability to sum up scores
-across these dimensions and establish minimum and maximum criteria for each dimension.
+across the dimensions and establish minimum and maximum criteria for each.
 
 ## Credit
 
-This is a replica of the aphantasia and Big5/OCEAN/IPIP quiz hosted by the Aphantasia Network.
+Sample quizzes are replicas of:
 
 - https://aphantasia.com/study/vviq/
 - https://openpsychometrics.org/tests/IPIP-BFFM/
 
 ## Documentation
 
+The example HTML template can be changed to link to custom:
+- CSS style (`style.css`)
+- Quiz data (`quizzes/`)
+- Email collection code (`submit/`)
+
 ### Defining questions
 
-The questions of the quiz is defined with the `test.questions` variable:
+The questions of the quiz are defined with the `test.questions` variable:
 
 ```javascript
 test.questions = [
@@ -46,6 +51,7 @@ test.questions = [
 }
 ```
 
+- `questions` is an array of question dictionaries.
 - The `prompt` and `question` keys of the dictionary are for text.
 - The `image` key links to an optional image to be displayed.
 - `answers` is a dictionary of answers, which can be keyed with numbers, letters, or strings.
@@ -77,7 +83,7 @@ test.results = [
 ];
 ```
 
-- The `test.results` entry is a list of dictionaries defining behavior and output for each result category.
+- The `test.results` entry is an array of dictionaries defining behavior and output for each result category.
 - `neurotypical` is an example category.
 - `criteria` are test criteria keyed on dimension. If there are no criteria, a dimension (or dimensions)
 should be provided, which will ensure the score for that dimension will be displayed.
@@ -87,15 +93,13 @@ should be provided, which will ensure the score for that dimension will be displ
 
 ### Data Collection
 
-Data collection behavior is activated when a separate `submitEmailData` variable is defined.
+Data collection behavior is activated when a `submitEmailData` variable is defined.
 
-The variable `submitEmailData` is as a dictionary containing the following keys:
+`submitEmailData` is as a dictionary containing the following keys:
 - `aboveFormHTML` : HTML data to display above a data submission form.
 - `formHTML` : HTML data for the form itself (excluding `<form>` tags).
 - `belowFormHTML : HTML data to display below a data submission form.
 - `submit` : A javascript function to submit the form data to an endpoint.
-
-Example:
 
 ```javascript
 const submitEmailData = {
