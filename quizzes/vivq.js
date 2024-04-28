@@ -1,5 +1,21 @@
 /* jshint esversion: 6 */
 
+const answers = {
+    1: 'No image at all, I only “know” I am thinking of the object',
+    2: 'Dim and vague image',
+    3: 'Moderately realistic and vivid',
+    4: 'Realistic and reasonably vivid',
+    5: 'Perfectly realistic, as vivid as real seeing',
+};
+
+const scores = {
+    1: { vividness: 1 },
+    2: { vividness: 2 },
+    3: { vividness: 3 },
+    4: { vividness: 4 },
+    5: { vividness: 5 },
+};
+
 // Define quiz questions and scoring.
 const test = {
     questions: [
@@ -8,327 +24,119 @@ const test = {
                 you at present) and consider carefully the picture that comes before your mind’s
                 eye.`,
             question: "The exact contours of face, head, shoulders and body.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of some relative or friend whom you frequently see (but who is not with
                 you at present) and consider carefully the picture that comes before your mind’s
                 eye.`,
             question: "Characteristic poses of head, attitudes of body etc.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of some relative or friend whom you frequently see (but who is not with
                 you at present) and consider carefully the picture that comes before your mind’s
                 eye.`,
             question: "The precise carriage, length of step etc., in walking.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of some relative or friend whom you frequently see (but who is not with
                 you at present) and consider carefully the picture that comes before your mind’s
                 eye.`,
             question: "The different colors worn in some familiar clothes.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
                 mind’s eye.`,
             question: "The sun rising above the horizon into a hazy sky.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
                 mind’s eye.`,
             question: "The sky clears and surrounds the sun with blueness.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
                 mind’s eye.`,
             question: "Clouds. A storm blows up with flashes of lightning.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Visualise a rising sun. Consider carefully the picture that comes before your
                 mind’s eye.`,
             question: "A rainbow appears.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of the front of a shop which you often go to. Consider the picture that
                 comes before your mind’s eye.`,
             question: "The overall appearance of the shop from the opposite side of the road.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of the front of a shop which you often go to. Consider the picture that
                 comes before your mind’s eye.`,
             question: `A window display including colors, shapes and details of individual items
                 for sale.`,
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of the front of a shop which you often go to. Consider the picture that
                 comes before your mind’s eye.`,
             question: "You are near the entrance. The color, shape and details of the door.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Think of the front of a shop which you often go to. Consider the picture that
                 comes before your mind’s eye.`,
             question: `You enter the shop and go to the counter. The counter Assistant serves you.
                 Money changes hands.`,
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Finally think of a country scene which involves trees, mountains and a lake.
                 Consider the picture that comes before your mind’s eye.`,
             question: "The contours of the landscape.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Finally think of a country scene which involves trees, mountains and a lake.
                 Consider the picture that comes before your mind’s eye.`,
             question: "The color and shape of the lake.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Finally think of a country scene which involves trees, mountains and a lake.
                 Consider the picture that comes before your mind’s eye.`,
             question: "The color and shape of the trees.",
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
         {
             prompt: `Finally think of a country scene which involves trees, mountains and a lake.
                 Consider the picture that comes before your mind’s eye.`,
             question: `A strong wind blows on the trees and on the lake causing reflections in the
                 water.`,
-            image: null,
-            answers: {
-                1: 'No image at all, I only “know” I am thinking of the object',
-                2: 'Dim and vague image',
-                3: 'Moderately realistic and vivid',
-                4: 'Realistic and reasonably vivid',
-                5: 'Perfectly realistic, as vivid as real seeing'
-            },
-            scores: {
-                1: { vividness: 1 },
-                2: { vividness: 2 },
-                3: { vividness: 3 },
-                4: { vividness: 4 },
-                5: { vividness: 5 },
-            }
+            answers: answers,
+            scores: scores,
         },
     ],
 
