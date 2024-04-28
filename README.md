@@ -1,8 +1,8 @@
-# VIV-Q Quiz
+# Online Quiz
 
 This is a browser Javascript template to administer and score an online user "quiz".
 
-Sample quizzes are provided for aphantasia and personality tests.
+Sample quizzes are provided for aphantasia (vviq) and personality (OCEAN) tests.
 
 The code supports multi-dimensional tests, with the ability to sum up scores
 across the dimensions and establish minimum and maximum criteria for each.
@@ -130,7 +130,3 @@ const submitEmailData = {
     },
 };
 ```
-
-### Other Stuff
-
-The quiz also asks for an email address and name, and sends this information to a Google Scripts endpoint for processing.
